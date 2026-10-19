@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimo's Creative Studio | 咪哞的創作者小窩</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FAF8F5',
+                            100: '#F5EFE6',
+                            200: '#E8DFD1',
+                            300: '#D9CBBB',
+                            800: '#4A3E3D',
+                            900: '#2A2221',
+                        },
+                        mimo: {
+                            pink: '#FFB3BA',
+                            yellow: '#FFDFBA',
+                            green: '#BAFFC9',
+                            blue: '#BAE1FF',
+                            purple: '#E8C5E5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 dark:bg-slate-900 text-cream-800 dark:text-slate-100 min-h-screen transition-colors duration-300 custom-scrollbar font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-cream-50/80 dark:bg-slate-900/80 border-b border-cream-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 font-bold text-xl text-amber-700 dark:text-amber-400 hover:opacity-80 transition-opacity">
+                <span class="w-9 h-9 rounded-full bg-amber-200 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-200 text-lg shadow-sm">🐮</span>
+                <span>Mimo's Studio <span class="text-sm font-normal text-amber-600 dark:text-amber-300">咪哞</span></span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm">
+                <a href="#about" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">關於咪哞</a>
+                <a href="#portfolio" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">作品展示</a>
+                <a href="#inspiration" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">創作靈感</a>
+                <a href="#contact" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">聯絡方式</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggle" class="p-2.5 rounded-full bg-cream-100 dark:bg-slate-800 hover:bg-cream-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all shadow-sm" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun text-amber-500 dark:hidden"></i>
+                    <i class="fa-solid fa-moon text-blue-400 hidden dark:block"></i>
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-cream-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream-100 dark:bg-slate-800 border-b border-cream-200 dark:border-slate-700 px-4 py-3 space-y-2">
+            <a href="#about" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-amber-600">關於咪哞</a>
+            <a href="#portfolio" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-amber-600">作品展示</a>
+            <a href="#inspiration" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-amber-600">創作靈感</a>
+            <a href="#contact" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-amber-600">聯絡方式</a>
+        </div>
+    </header>
+
+    <!-- Hero Section / 關於咪哞 -->
+    <section id="about" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <!-- Avatar / Illustration -->
+            <div class="relative group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-amber-200 via-rose-200 to-indigo-200 dark:from-amber-900 dark:via-rose-900 dark:to-indigo-900 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-xl bg-amber-100 dark:bg-slate-800 flex items-center justify-center">
+                    <svg class="w-full h-full p-4" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="#FFEFD5" />
+                        <!-- Cute Cow Character (Mimo) -->
+                        <path d="M 60 40 Q 40 20 50 60 Z" fill="#8B4513" />
+                        <path d="M 140 40 Q 160 20 150 60 Z" fill="#8B4513" />
+                        <!-- Horns -->
+                        <path d="M 70 55 C 65 35 80 30 85 45 Z" fill="#F0E68C" />
+                        <path d="M 130 55 C 135 35 120 30 115 45 Z" fill="#F0E68C" />
+                        <!-- Ears -->
+                        <ellipse cx="45" cy="80" rx="20" ry="10" fill="#FFC0CB" transform="rotate(-15 45 80)"/>
+                        <ellipse cx="155" cy="80" rx="20" ry="10" fill="#FFC0CB" transform="rotate(15 155 80)"/>
+                        <!-- Head -->
+                        <ellipse cx="100" cy="95" rx="55" ry="45" fill="#FFF" />
+                        <!-- Spots -->
+                        <path d="M 60 70 Q 75 60 80 80 Q 70 95 55 85 Z" fill="#4A3E3D" />
+                        <path d="M 125 75 Q 140 70 145 85 Q 130 95 120 85 Z" fill="#4A3E3D" />
+                        <!-- Eyes -->
+                        <circle cx="80" cy="95" r="6" fill="#333" />
+                        <circle cx="120" cy="95" r="6" fill="#333" />
+                        <circle cx="82" cy="93" r="2" fill="#FFF" />
+                        <circle cx="122" cy="93" r="2" fill="#FFF" />
+                        <!-- Cheeks -->
+                        <ellipse cx="70" cy="105" rx="8" ry="5" fill="#FFB3BA" opacity="0.8" />
+                        <ellipse cx="130" cy="105" rx="8" ry="5" fill="#FFB3BA" opacity="0.8" />
+                        <!-- Snout -->
+                        <ellipse cx="100" cy="115" rx="25" ry="16" fill="#FFD1DC" />
+                        <circle cx="92" cy="113" r="3" fill="#A0522D" />
+                        <circle cx="108" cy="113" r="3" fill="#A0522D" />
+                        <path d="M 95 122 Q 100 126 105 122" stroke="#A0522D" stroke-width="2" fill="none" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Intro Text -->
+            <div class="flex-1 text-center md:text-left space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-wide">
+                    ✨ 歡迎來到咪哞的創作者小窩！
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+                    嗨，我是 <span class="text-amber-600 dark:text-amber-400">咪哞 Mimo</span> 🎨
+                </h1>
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                    歡迎來到咪哞的創作小窩！這裡記錄著外星與咪哞的奇幻旅程、昆蟲擬人創作，以及各種暖心的繪本與個人插畫。喜歡用溫暖筆觸與充滿想像力的故事記錄生活細節！
+                </p>
+
+                <!-- Skill Tags -->
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start pt-2">
+                    <span class="px-3 py-1.5 rounded-xl bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 text-xs font-medium border border-rose-200 dark:border-rose-900/50">
+                        <i class="fa-solid fa-icons mr-1"></i> Line 貼圖創作
+                    </span>
+                    <span class="px-3 py-1.5 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 text-xs font-medium border border-amber-200 dark:border-amber-900/50">
+                        <i class="fa-solid fa-book-open mr-1"></i> 繪本故事繪製
+                    </span>
+                    <span class="px-3 py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-medium border border-emerald-200 dark:border-emerald-900/50">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Q 版角色設計
+                    </span>
+                    <span class="px-3 py-1.5 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs font-medium border border-sky-200 dark:border-sky-900/50">
+                        <i class="fa-solid fa-palette mr-1"></i> 個人視覺插畫
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section / 作品展示 -->
+    <section id="portfolio" class="py-12 bg-cream-100/60 dark:bg-slate-800/40 border-y border-cream-200 dark:border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-white">作品展示</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">點擊作品集卡片可查看完整內容與介紹</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="filterContainer">
+                <button data-filter="all" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-amber-600 text-white shadow-sm">
+                    全部 (All)
+                </button>
+                <button data-filter="line-sticker" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-700">
+                    Line貼圖創作
+                </button>
+                <button data-filter="dolphin-book" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-700">
+                    白海豚動態繪本
+                </button>
+                <button data-filter="chibi-character" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-700">
+                    Q版角色
+                </button>
+                <button data-filter="illustration" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-700">
+                    創作插畫
+                </button>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+                
+                <!-- Project A: Line貼圖創作 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="line-sticker" onclick="openModal('ai-sticker')">
+                    <div class="relative aspect-video overflow-hidden bg-rose-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">💬</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-rose-200 text-rose-800 text-xs px-2 py-0.5 rounded-full">AI靈感</span>
+                                <span class="bg-amber-200 text-amber-800 text-xs px-2 py-0.5 rounded-full">貼圖</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-rose-500 dark:text-rose-400">Line貼圖創作</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                AI 繪圖輔助角色貼圖發想
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                Line貼圖創作，結合 AI 靈感輔助與角色設定。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project B: 白海豚動態繪本 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="dolphin-book" onclick="openModal('white-dolphin')">
+                    <div class="relative aspect-video overflow-hidden bg-sky-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">🐬</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-sky-200 text-sky-800 text-xs px-2 py-0.5 rounded-full">海洋故事</span>
+                                <span class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full">動態網頁</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-sky-500 dark:text-sky-400">白海豚動態繪本</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                白海豚動態繪本
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                探索海洋生命力的動態繪本創作。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project C: Q版角色 - 外星與咪哞之旅 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="chibi-character" onclick="openModal('mimo-alien')">
+                    <div class="relative aspect-video overflow-hidden bg-indigo-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">👽🐮</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-purple-200 text-purple-800 text-xs px-2 py-0.5 rounded-full">奇幻冒險</span>
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2 py-0.5 rounded-full">Q版角色</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-indigo-500 dark:text-indigo-400">Q版角色</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                外星與咪哞之旅
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                外星人跟牛牛的旅程。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project D: Q版角色 - 昆蟲收集本 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="chibi-character" onclick="openModal('insect-book')">
+                    <div class="relative aspect-video overflow-hidden bg-emerald-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">🐞🦋</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-emerald-200 text-emerald-800 text-xs px-2 py-0.5 rounded-full">昆蟲擬人</span>
+                                <span class="bg-teal-200 text-teal-800 text-xs px-2 py-0.5 rounded-full">可愛風</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">Q版角色</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                昆蟲收集本
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                收集各種昆蟲擬人成 Q 版。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project E: 創作插畫 - 夢遊夜 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="illustration" onclick="openModal('sleepwalk-night')">
+                    <div class="relative aspect-video overflow-hidden bg-purple-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">🌙✨</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-purple-200 text-purple-800 text-xs px-2 py-0.5 rounded-full">夢幻視覺</span>
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2 py-0.5 rounded-full">童話繪本</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-purple-500 dark:text-purple-400">創作插畫</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                夢遊夜
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                一個迷途的孩子正在尋找回家的路，路途中都會遇到各式各樣的朋友和風景。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project F: 創作插畫 - 個人插畫 -->
+                <div class="portfolio-item group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-cream-200 dark:border-slate-700 flex flex-col" data-category="illustration" onclick="openModal('personal-illustration')">
+                    <div class="relative aspect-video overflow-hidden bg-amber-50 dark:bg-slate-700/50 flex items-center justify-center p-6">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-6xl">☕🎨</span>
+                            <div class="mt-2 flex justify-center gap-2">
+                                <span class="bg-amber-200 text-amber-800 text-xs px-2 py-0.5 rounded-full">記憶迴響</span>
+                                <span class="bg-orange-200 text-orange-800 text-xs px-2 py-0.5 rounded-full">手感插畫</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">創作插畫</span>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                個人插畫
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 line-clamp-2">
+                                以不同記憶中的迴響下創作的個人插畫集。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-cream-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>點擊查看細節</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Section: 今日創作靈感抽卡機 -->
+    <section id="inspiration" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-amber-100 via-rose-50 to-indigo-100 dark:from-slate-800 dark:via-slate-800/80 dark:to-slate-900 rounded-3xl p-6 sm:p-10 shadow-lg border border-amber-200/50 dark:border-slate-700 text-center relative overflow-hidden">
+            <!-- Background Decorative element -->
+            <div class="absolute -right-10 -bottom-10 text-8xl opacity-10 pointer-events-none">✨</div>
+            
+            <div class="max-w-xl mx-auto">
+                <span class="inline-block p-3 rounded-2xl bg-white dark:bg-slate-700 shadow-md text-amber-500 mb-4">
+                    <i class="fa-solid fa-dice-five text-3xl"></i>
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white">今日創作靈感抽卡機</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 mb-6">
+                    缺乏靈感嗎？點擊下方按鈕，讓咪哞為你隨機抽選今日畫圖主題與勵志小語！
+                </p>
+
+                <!-- Dynamic Result Card -->
+                <div id="inspirationCard" class="bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-cream-200 dark:border-slate-700 mb-6 transition-all min-h-[140px] flex flex-col justify-center items-center">
+                    <p class="text-amber-700 dark:text-amber-400 font-bold text-lg mb-1" id="inspirationPrompt">點擊下方按鈕抽取靈感！</p>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm italic" id="inspirationAdvice">「靈感總是在動筆的那一刻悄悄降臨 ✨」</p>
+                </div>
+
+                <button id="drawBtn" onclick="generateInspiration()" class="px-6 py-3 rounded-2xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow-lg hover:shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 mx-auto">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> 抽取今日繪圖靈感
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / 聯絡方式 -->
+    <footer id="contact" class="bg-cream-100 dark:bg-slate-900 border-t border-cream-200 dark:border-slate-800 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2 font-bold text-lg text-amber-800 dark:text-amber-400">
+                        <span>🐮</span> Mimo's Creative Studio
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">咪哞的創作者小窩 &copy; 2026. All rights reserved.</p>
+                </div>
+
+                <!-- Social & Contact -->
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cream-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors shadow-sm" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cream-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors shadow-sm" aria-label="LINE">
+                        <i class="fa-brands fa-line text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cream-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors shadow-sm" aria-label="Email">
+                        <i class="fa-regular fa-envelope text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Lightbox -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-cream-200 dark:border-slate-700 relative transform transition-all flex flex-col">
+            <!-- Modal Header / Close -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 hover:bg-slate-200 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Content (Injected by JS) -->
+            <div id="modalBody" class="p-6 sm:p-8">
+                <!-- Content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Project Data Map
+        const projectsData = {
+            'ai-sticker': {
+                category: 'Line貼圖創作',
+                title: 'AI 繪圖輔助角色貼圖發想',
+                icon: '💬',
+                bgClass: 'bg-rose-50 dark:bg-slate-700/50',
+                summary: 'Line貼圖創作，結合 AI 靈感輔助與角色設定。',
+                description: '這套貼圖創作融合了手繪原創性格與 AI 工具的腦力激盪。透過 AI 在發想階段快速提供情緒表情與動作提案，再由咪哞精細手繪呈現，打造出極具生活共鳴與情緒價值的表情包系列。',
+                tags: ['Line貼圖', 'AI輔助發想', '角色表情', '角色設計']
+            },
+            'white-dolphin': {
+                category: '白海豚動態繪本',
+                title: '白海豚動態繪本',
+                icon: '🐬',
+                bgClass: 'bg-sky-50 dark:bg-slate-700/50',
+                summary: '探索海洋生命力的動態繪本創作。',
+                description: '以臺灣珍貴的粉紅河海豚（白海豚）為主角，打造結合互動動態效果的線上繪本。讀者在滾動頁面的過程中，能伴隨白海豚穿梭於湛藍海洋，體會海洋生態之美與保護環境的重要課題。',
+                tags: ['動態繪本', '白海豚', '海洋生態', '網頁繪本']
+            },
+            'mimo-alien': {
+                category: 'Q版角色',
+                title: '外星與咪哞之旅',
+                icon: '👽🐮',
+                bgClass: 'bg-indigo-50 dark:bg-slate-700/50',
+                summary: '外星人跟牛牛的旅程。',
+                description: '描述來自遙遠外星的訪客與地球的溫和牛牛「咪哞」相遇後，所展開的一系列溫馨日常與歡樂冒險。全系列採用 Q 版圓滾滾的畫風，展現跨越星際的純真友誼。',
+                tags: ['外星人', '咪哞', 'Q版可愛', '奇幻冒險']
+            },
+            'insect-book': {
+                category: 'Q版角色',
+                title: '昆蟲收集本',
+                icon: '🐞🦋',
+                bgClass: 'bg-emerald-50 dark:bg-slate-700/50',
+                summary: '收集各種昆蟲擬人成 Q 版。',
+                description: '將大自然中看似可怕或微小的昆蟲（如瓢蟲、蝴蝶、獨角仙、螳螂等）重新轉化設計為超萌的 Q 版擬人角色！希望透過精緻可愛的手稿與角色小故事，讓大家愛上豐富的大自然昆蟲世界。',
+                tags: ['昆蟲擬人', 'Q版角色', '圖鑑收集', '自然探索']
+            },
+            'sleepwalk-night': {
+                category: '創作插畫',
+                title: '夢遊夜',
+                icon: '🌙✨',
+                bgClass: 'bg-purple-50 dark:bg-slate-700/50',
+                summary: '一個迷途的孩子正在尋找回家的路，路途中都會遇到各式各樣的朋友和風景。',
+                description: '《夢遊夜》是一套充滿童話色彩與神秘氣氛的連貫風格插畫。故事講述主角在夢境交織的深夜迷失了方向，漫步於星光與螢火蟲點綴的夜色中，並遇到了發光的樹精、會說話的貓頭鷹以及指引方向的流星。',
+                tags: ['夢幻風格', '故事繪本', '童話氛圍', '靜謐夜色']
+            },
+            'personal-illustration': {
+                category: '創作插畫',
+                title: '個人插畫',
+                icon: '☕🎨',
+                bgClass: 'bg-amber-50 dark:bg-slate-700/50',
+                summary: '以不同記憶中的迴響下創作的個人插畫集。',
+                description: '這組個人插畫集紀錄了咪哞在日常生活、旅行點滴與隨筆冥想中的靈感迴響。午後陽光灑進咖啡館角落的溫暖、雨後空氣中的泥土氣味，都被化為層次豐富的色彩與手繪質感。',
+                tags: ['個人創作', '生活記憶', '氛圍繪畫', '溫暖手感']
+            }
+        };
+
+        // Inspiration Prompts List
+        const inspirationList = [
+            { prompt: "🎨 繪畫主題：喝珍珠奶茶的太空人", advice: "「試著用活潑的對比色來表現宇宙與奶茶的微妙衝突感吧！」" },
+            { prompt: "🌱 繪畫主題：微觀世界裡的昆蟲下午茶", advice: "「把樹葉當作桌子、露珠當作玻璃杯，發揮擬人的想像力！」" },
+            { prompt: "🐱 繪畫主題：趴在雲朵上睡覺的肥貓", advice: "「軟綿綿的觸感就是極致療癒的代名詞～」" },
+            { prompt: "☕ 繪畫主題：雨天咖啡館窗邊的咪哞", advice: "「用溫暖的黃光與冷色調的雨水形成舒適的視覺對比。」" },
+            { prompt: "🚀 繪畫主題：外星人與牛牛的星空派對", advice: "「加入螢光色系或閃爍星光，讓畫面充滿夢幻節慶感！」" },
+            { prompt: "🌸 繪畫主題：穿著花朵洋裝的瓢蟲少女", advice: "「嘗試為角色設計細緻的小配件，會讓畫面豐富度大增喔！」" }
+        ];
+
+        // Lightbox Modal Handler
+        function openModal(key) {
+            const data = projectsData[key];
+            if (!data) return;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="aspect-video w-full rounded-2xl ${data.bgClass} flex items-center justify-center text-7xl mb-6 shadow-inner">
+                    ${data.icon}
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide">${data.category}</span>
+                        <h3 class="text-2xl font-extrabold text-slate-800 dark:text-white mt-1">${data.title}</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 font-medium text-base">${data.summary}</p>
+                    <hr class="border-cream-200 dark:border-slate-700 my-4" />
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">${data.description}</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        ${data.tags.map(tag => `<span class="px-2.5 py-1 rounded-lg bg-cream-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium">#${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Random Inspiration Draw
+        function generateInspiration() {
+            const card = document.getElementById('inspirationCard');
+            const promptEl = document.getElementById('inspirationPrompt');
+            const adviceEl = document.getElementById('inspirationAdvice');
+            
+            // Subtle animation effect
+            card.classList.add('scale-95', 'opacity-50');
+            
+            setTimeout(() => {
+                const randomItem = inspirationList[Math.floor(Math.random() * inspirationList.length)];
+                promptEl.textContent = randomItem.prompt;
+                adviceEl.textContent = randomItem.advice;
+                card.classList.remove('scale-95', 'opacity-50');
+            }, 200);
+        }
+
+        // Filtering Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('#filterContainer .filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Style update
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-amber-600', 'text-white', 'shadow-sm');
+                        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    });
+                    btn.classList.add('bg-amber-600', 'text-white', 'shadow-sm');
+                    btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+
+                    // Filter animation
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'flex';
+                            setTimeout(() => { item.style.opacity = '1'; }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('themeToggle');
+            themeToggleBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close Modal on backdrop click
+            document.getElementById('projectModal').addEventListener('click', (e) => {
+                if (e.target.id === 'projectModal') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
